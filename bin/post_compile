@@ -1,3 +1,0 @@
-#!/bin/bash
-./bin/bk-plugin-demo-go syncapigw
-echo "post_compile done"
