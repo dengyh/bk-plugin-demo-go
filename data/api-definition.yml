@@ -1,0 +1,17 @@
+apigateway:
+  description: ${BK_PLUGIN_APIGW_NAME} apigw
+  is_public: true
+  maintainers:
+    - ${BK_APIGW_MANAGER_MAINTAINERS}
+
+stages:
+  - name: ${BK_PLUGIN_APIGW_STAGE_NAME}
+    vars:
+      api_sub_path: "${BK_PLUGIN_APIGW_BACKEND_SUB_PATH}"
+    proxy_http:
+      timeout: 60
+      upstreams:
+        loadbalance: "roundrobin"
+        hosts:
+          - host: ${BK_PLUGIN_APIGW_BACKEND_SCHEME}://${BK_PLUGIN_APIGW_BACKEND_HOST}/
+            weight: 100

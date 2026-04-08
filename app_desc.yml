@@ -1,0 +1,25 @@
+specVersion: 3
+modules:
+  - name: default
+    isDefault: true
+    language: go
+    spec:
+      processes:
+        - name: web
+          procCommand: ./bin/bk-plugin-demo-go server
+          services:
+            - name: web
+              exposedType:
+                name: bk/http
+              targetPort: 5000
+              port: 80
+        - name: schedule
+          procCommand: ./bin/bk-plugin-demo-go worker
+      configuration:
+        env:
+          - name: BK_APIGW_MANAGER_URL_TMPL
+            value: http://{api_name}.apigw.o.woa.com
+            description: apigw manager url template
+          - name: BK_APIGW_MANAGER_MAINTAINERS
+            value: dannydeng
+            description: plugin apigw managers
