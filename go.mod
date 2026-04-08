@@ -1,6 +1,6 @@
 module bk-plugin-demo-go
 
-go 1.24
+go 1.24.6
 
 require (
 	github.com/TencentBlueKing/beego-runtime v0.7.0
