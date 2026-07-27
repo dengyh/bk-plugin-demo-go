@@ -28,7 +28,7 @@ tenant context received
 `1.0.2` 的输入表单会调用：
 
 ```text
-/plugin_service/data_api/bk-plugin-demo-go/bk_plugin/plugin_api/tenant_id
+${SITE_URL}plugin_service/data_api/bkplugin-demo-go/bk_plugin/plugin_api/tenant_id?app_tenant_mode=global
 ```
 
 插件后端从 API 网关注入的 `X-Bkapi-Tenant-Id` 请求头读取租户 ID，返回为下拉选项
@@ -40,6 +40,12 @@ tenant context validation succeeded
 
 对应结构化字段包含 `trace_id`、`tenant_id` 和 `data_api_tenant_id`。如果两种方式获取的租户
 ID 不一致，插件执行失败并打印 `tenant context validation failed`。
+
+SG 环境的 `SITE_URL` 为 `/bk--sops/`，对应的完整验证地址是：
+
+```text
+https://apps.sg.bk2game.com/bk--sops/plugin_service/data_api/bkplugin-demo-go/bk_plugin/plugin_api/tenant_id?app_tenant_mode=global
+```
 
 ## 依赖版本
 

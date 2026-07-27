@@ -80,8 +80,9 @@ func TestInputsFormLoadsTenantIDThroughDataAPI(t *testing.T) {
 	component := tenantField["ui:component"].(map[string]interface{})
 	props := component["props"].(map[string]interface{})
 	remoteConfig := props["remoteConfig"].(map[string]interface{})
-	if remoteConfig["url"] != "/plugin_service/data_api/bk-plugin-demo-go/bk_plugin/plugin_api/tenant_id" {
-		t.Fatalf("remoteConfig.url = %v", remoteConfig["url"])
+	wantURL := "{{ $context.get('bk_plugin_api_host')['bkplugin-demo-go'] + 'bk_plugin/plugin_api/tenant_id?app_tenant_mode=global' }}"
+	if remoteConfig["url"] != wantURL {
+		t.Fatalf("remoteConfig.url = %v, want %v", remoteConfig["url"], wantURL)
 	}
 }
 

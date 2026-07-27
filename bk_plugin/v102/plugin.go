@@ -21,7 +21,7 @@ var InputsFormJSON = []byte(`{
 				"name": "select",
 				"props": {
 					"remoteConfig": {
-						"url": "/plugin_service/data_api/bk-plugin-demo-go/bk_plugin/plugin_api/tenant_id"
+						"url": "{{ $context.get('bk_plugin_api_host')['bkplugin-demo-go'] + 'bk_plugin/plugin_api/tenant_id?app_tenant_mode=global' }}"
 					},
 					"clearable": false
 				}
