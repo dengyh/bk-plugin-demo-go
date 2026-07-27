@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	HeaderTenantID  = "X-Bkapi-Tenant-Id"
+	HeaderTenantID  = "X-Bk-Tenant-Id"
 	HeaderRequestID = "X-Bkapi-Request-Id"
 )
 

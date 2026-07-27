@@ -32,7 +32,7 @@ tenant context received
 ${SITE_URL}plugin_service/data_api/bkplugin-go2/bk_plugin/plugin_api/tenant_id
 ```
 
-插件后端从 API 网关注入的 `X-Bkapi-Tenant-Id` 请求头读取租户 ID，返回为下拉选项
+插件后端从 API 网关注入的 `X-Bk-Tenant-Id` 请求头读取租户 ID，返回为下拉选项
 “当前租户：<tenant_id>”。选择该项并执行节点后，标准运维节点日志会包含：
 
 ```text

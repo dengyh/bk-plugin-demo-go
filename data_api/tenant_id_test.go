@@ -17,7 +17,7 @@ func callTenantIDAPI(t *testing.T, tenantID string) (TenantIDResponse, string) {
 
 	req := httptest.NewRequest(http.MethodGet, "/bk_plugin/plugin_api/tenant_id", nil)
 	if tenantID != "" {
-		req.Header.Set(HeaderTenantID, tenantID)
+		req.Header.Set("X-Bk-Tenant-Id", tenantID)
 	}
 	req.Header.Set(HeaderRequestID, "request-tenant-001")
 	recorder := httptest.NewRecorder()
@@ -77,7 +77,7 @@ func TestTenantIDAPIRejectsMissingGatewayTenantHeader(t *testing.T) {
 	if response.Result {
 		t.Fatal("result = true, want false")
 	}
-	if response.Message != "X-Bkapi-Tenant-Id header is required" {
+	if response.Message != "X-Bk-Tenant-Id header is required" {
 		t.Fatalf("message = %q", response.Message)
 	}
 	if response.Data != nil {
