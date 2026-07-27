@@ -4,13 +4,14 @@
 
 ## 插件说明
 
-这是一个简单的 echo 插件，目前包含三个版本：
+这是一个简单的 echo 插件，目前包含四个版本：
 
 - `1.0.0`：基础 echo 版本。
 - `1.0.1`：多租户验证版本，从标准运维上下文读取 `tenant_id`，并输出带 `trace_id` 的结构化日志。
 - `1.0.2`：同时验证标准运维执行上下文和表单 `data_api` 获取到的租户 ID。
+- `1.0.3`：修正 `data_api` 使用的 SaaS `app_code` 为 `bkplugin-go2`。
 
-三个版本的基础参数保持一致：
+四个版本的基础参数保持一致：
 
 - **输入**：`hello`（string）
 - **上下文输入**：`executor`（string - 任务执行人）
@@ -25,10 +26,10 @@ tenant context received
 对应日志包含 `trace_id` 和 `tenant_id` 字段；如果标准运维没有传入 `tenant_id`，插件会打印
 `tenant context missing` 并执行失败。
 
-`1.0.2` 的输入表单会调用：
+`1.0.3` 的输入表单会调用：
 
 ```text
-${SITE_URL}plugin_service/data_api/bkplugin-demo-go/bk_plugin/plugin_api/tenant_id
+${SITE_URL}plugin_service/data_api/bkplugin-go2/bk_plugin/plugin_api/tenant_id
 ```
 
 插件后端从 API 网关注入的 `X-Bkapi-Tenant-Id` 请求头读取租户 ID，返回为下拉选项
@@ -44,7 +45,7 @@ ID 不一致，插件执行失败并打印 `tenant context validation failed`。
 SG 环境的 `SITE_URL` 为 `/bk--sops/`，对应的完整验证地址是：
 
 ```text
-https://apps.sg.bk2game.com/bk--sops/plugin_service/data_api/bkplugin-demo-go/bk_plugin/plugin_api/tenant_id
+https://apps.sg.bk2game.com/bk--sops/plugin_service/data_api/bkplugin-go2/bk_plugin/plugin_api/tenant_id
 ```
 
 ## 依赖版本
