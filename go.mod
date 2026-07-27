@@ -3,8 +3,10 @@ module bk-plugin-demo-go
 go 1.24.6
 
 require (
-	github.com/TencentBlueKing/beego-runtime v0.7.3
+	github.com/TencentBlueKing/beego-runtime v0.7.5
 	github.com/TencentBlueKing/bk-plugin-framework-go v0.5.0
+	github.com/beego/beego/v2 v2.0.2
+	github.com/sirupsen/logrus v1.8.1
 )
 
 require (
@@ -17,7 +19,6 @@ require (
 	github.com/alecthomas/jsonschema v0.0.0-20220203024042-cc89723c9db0 // indirect
 	github.com/aws/aws-sdk-go v1.37.16 // indirect
 	github.com/beego/bee/v2 v2.0.2 // indirect
-	github.com/beego/beego/v2 v2.0.2 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bytedance/sonic v1.11.6 // indirect
 	github.com/bytedance/sonic/loader v0.1.1 // indirect
@@ -86,7 +87,6 @@ require (
 	github.com/prometheus/procfs v0.16.0 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
 	github.com/shiena/ansicolor v0.0.0-20200904210342-c7312218db18 // indirect
-	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/smartwalle/pongo2render v1.0.1 // indirect
 	github.com/spf13/afero v1.1.2 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
